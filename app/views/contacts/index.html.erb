@@ -1,0 +1,36 @@
+<section class="section">
+    <div class="container is-fluid">
+      <div class="notification">
+        <h2 class="title is-4">Contactos</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th><abbr title="Id">Id</abbr></th>
+              <th><abbr title="Nom"> Nombre</abbr></th>
+              <th><abbr title="FdN">Fecha de Nacimiento</abbr></th>
+              <th><abbr title="Tel">Telefono</abbr></th>
+              <th><abbr title="Dir">Dirección</abbr></th>
+              <th><abbr title="TC">Tarjeta de credito</abbr></th>
+              <th><abbr title="Fran">Franquicia</abbr></th>
+              <th><abbr title="Email">Email</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @contacts.each do |contact| %>
+              <tr>
+                <th><%= contact.id %></th>
+                <td><%= contact.name %></td>
+                <td><%= contact.dob %></td>
+                <td><%= contact.telephone %></td>
+                <td><%= contact.address %></td>
+                <td><%= contact.card_number.split(//).last(4).join %></td>
+                <td><%= contact.franchise %></td>
+                <td><%= contact.email %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= link_to "Cargar Archivo", new_csv_path %>
+      </div>
+    </div>
+</section>
